@@ -14,13 +14,13 @@ function Navbar(props) {
           onChange={(e) => props.setSearchValue(e.target.value)}
         />
         <div>
-          <select name="" id="">
+          <select name="" id="" onChange={(e) => props.setFilterValue(e.target.value)} onClick={props.setStateTrue()}>
             Filter by region
-            <option value="">Europe</option>
-            <option value="">Asia</option>
-            <option value="">Americas</option>
-            <option value="">Africa</option>
-            <option value="">Oceania</option>
+            <option value="Europe">Europe</option>
+            <option value="Asia">Asia</option>
+            <option value="Americas">Americas</option>
+            <option value="Africa">Africa</option>
+            <option value="Oceania">Oceania</option>
           </select>
           <span>
             <BsMoon />
