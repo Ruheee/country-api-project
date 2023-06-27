@@ -6,20 +6,21 @@ import { useEffect, useState } from "react";
 
 const Countries = (props) => {
   const [countries, setCountries] = useState([]);
-  const [isTrue, setTrue] = useState(false);
-
-  const setStateTrue = () => {
-    setTrue(true);
+  const [isTrue, setIsTrue] = useState(false);
+  
+  
+  const setStateTrue = (e) => {
+    setIsTrue(true);
   };
 
-  useEffect(() => {
-    setTrue(false);
-  },[]);
+
+const setStateFalse = (e) => {
+    setIsTrue(false);
+  };
 
 
 
   useEffect(() => {
-    
     axios.get("https://restcountries.com/v3.1/all").then((res) => {
       setCountries(res.data);
     });
@@ -31,9 +32,10 @@ const Countries = (props) => {
         setSearchValue={props.setSearchValue}
         setFilterValue={props.setFilterValue}
         setStateTrue={setStateTrue}
+        setStateFalse={setStateFalse}
       />
       <section>
-        {!isTrue &&
+        {isTrue === false &&
           countries
             .filter((country) => {
               return props.search.toLowerCase() === ""
