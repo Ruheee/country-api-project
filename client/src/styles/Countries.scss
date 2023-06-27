@@ -1,0 +1,35 @@
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.country--card {
+  width: 250px;
+  margin: 25px;
+  background-color: white;
+  box-shadow: 0 2px 10px -2px gray;
+  border-radius: 5px;
+  img{
+    width: 100%;
+    height: 120px;
+    border-radius: 5px;
+  }
+  
+}
+
+.country--info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 10px;
+  
+
+  p {
+    margin: 5px 0;
+  }
+  span{
+    font-weight: 800;
+  }
+}

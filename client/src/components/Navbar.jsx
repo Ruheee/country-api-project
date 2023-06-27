@@ -9,14 +9,15 @@ function Navbar(props) {
         <h1>Where in the world?</h1>
         <input
           type="search"
+          placeholder="Search Country"
           name=""
           id=""
           onChange={(e) => props.setSearchValue(e.target.value)}
           onClick={() => props.setStateFalse()}
         />
-        <div>
-          <select name="" id="" onChange={(e) => {return props.setFilterValue(e.target.value), props.setStateTrue()}} >
-            Filter by region
+        <div className="select--span">
+         
+          <select  name="region" id="" onChange={(e) => {return props.setFilterValue(e.target.value), props.setStateTrue()}} >
             <option value="Europe">Europe</option>
             <option value="Asia">Asia</option>
             <option value="Americas">Americas</option>

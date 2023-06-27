@@ -10,3 +10,41 @@ header {
   justify-content: space-between;
   padding: 20px;
 }
+
+h1{
+  font-weight: 600;
+}
+
+input {
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.select--span {
+  display: flex;
+  align-items:center;
+}
+
+select{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+svg{
+  width: 12px;
+  margin-right: 2px;
+  padding-top: 5px;
+}
+
+.span{
+  margin-left: 10px;
+
+  .span:hover{
+    cursor: pointer;
+    color: darkblue;
+  }
+}

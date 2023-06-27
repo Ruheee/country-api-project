@@ -1,24 +1,21 @@
 import React from "react";
 import axios from "axios";
 import Navbar from "./Navbar";
+import "../styles/Countries.scss";
 // import from react
 import { useEffect, useState } from "react";
 
 const Countries = (props) => {
   const [countries, setCountries] = useState([]);
   const [isTrue, setIsTrue] = useState(false);
-  
-  
+
   const setStateTrue = (e) => {
     setIsTrue(true);
   };
 
-
-const setStateFalse = (e) => {
+  const setStateFalse = (e) => {
     setIsTrue(false);
   };
-
-
 
   useEffect(() => {
     axios.get("https://restcountries.com/v3.1/all").then((res) => {
@@ -44,14 +41,22 @@ const setStateFalse = (e) => {
             })
             .map((country, index) => {
               return (
-                <div key={index}>
-                  <ul>
-                    <img src={country.flags.png} alt="" />
-                    <li>{country.name.common}</li>
-                    <li>{country.population}</li>
-                    <li>{country.region}</li>
-                    <li>{country.capital}</li>
-                  </ul>
+                <div key={index} className="country--card">
+                  <img src={country.flags.png} alt="" />
+                  <div className="country--info">
+                    <p>
+                      <span>Country:</span> {country.name.common}
+                    </p>
+                    <p>
+                      <span>Population:</span> {country.population}
+                    </p>
+                    <p>
+                      <span>Region:</span> {country.region}
+                    </p>
+                    <p>
+                      <span>Capital:</span> {country.capital}
+                    </p>
+                  </div>
                 </div>
               );
             })}
@@ -65,14 +70,22 @@ const setStateFalse = (e) => {
             })
             .map((country, index) => {
               return (
-                <div key={index}>
-                  <ul>
-                    <img src={country.flags.png} alt="" />
-                    <li>{country.name.common}</li>
-                    <li>{country.population}</li>
-                    <li>{country.region}</li>
-                    <li>{country.capital}</li>
-                  </ul>
+                <div key={index} className="country--card">
+                  <img src={country.flags.png} alt="" />
+                  <div className="country--info">
+                    <p>
+                      <span>Country:</span> {country.name.common}
+                    </p>
+                    <p>
+                      <span>Population:</span> {country.population}
+                    </p>
+                    <p>
+                      <span>Region:</span> {country.region}
+                    </p>
+                    <p>
+                      <span>Capital:</span> {country.capital}
+                    </p>
+                  </div>
                 </div>
               );
             })}
