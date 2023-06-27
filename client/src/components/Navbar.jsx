@@ -24,7 +24,7 @@ function Navbar(props) {
             <option value="Africa">Africa</option>
             <option value="Oceania">Oceania</option>
           </select>
-          <span>
+          <span className="span">
             <BsMoon />
             Dark Mode
           </span>
