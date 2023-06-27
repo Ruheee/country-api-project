@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import Filter from "./components/Filter";
 import Navbar from "./components/Navbar";
+import { Country } from "./components/Country";
 function App() {
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
@@ -18,9 +19,9 @@ function App() {
   return (
     <div>
       <Router>
-
         <Routes>
           <Route
+            exact
             path="/"
             element={
               <Countries
@@ -31,6 +32,7 @@ function App() {
               />
             }
           />
+          <Route path="/:name" element={<Country />} />
         </Routes>
       </Router>
     </div>

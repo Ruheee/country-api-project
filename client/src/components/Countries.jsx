@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import "../styles/Countries.scss";
 // import from react
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Countries = (props) => {
   const [countries, setCountries] = useState([]);
@@ -41,22 +42,24 @@ const Countries = (props) => {
             })
             .map((country, index) => {
               return (
-                <div key={index} className="country--card">
-                  <img src={country.flags.png} alt="" />
-                  <div className="country--info">
-                    <p>
-                      <span>Country:</span> {country.name.common}
-                    </p>
-                    <p>
-                      <span>Population:</span> {country.population}
-                    </p>
-                    <p>
-                      <span>Region:</span> {country.region}
-                    </p>
-                    <p>
-                      <span>Capital:</span> {country.capital}
-                    </p>
-                  </div>
+                <div className="country--card">
+                  <Link key={index} to={`${country.name.common}`}>
+                    <img src={country.flags.png} alt="" />
+                    <div className="country--info">
+                      <p>
+                        <span>Country:</span> {country.name.common}
+                      </p>
+                      <p>
+                        <span>Population:</span> {country.population}
+                      </p>
+                      <p>
+                        <span>Region:</span> {country.region}
+                      </p>
+                      <p>
+                        <span>Capital:</span> {country.capital}
+                      </p>
+                    </div>
+                  </Link>
                 </div>
               );
             })}
