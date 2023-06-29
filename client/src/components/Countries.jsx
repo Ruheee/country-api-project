@@ -10,11 +10,11 @@ const Countries = (props) => {
   const [countries, setCountries] = useState([]);
   const [isTrue, setIsTrue] = useState(false);
 
-  const setStateTrue = (e) => {
+  const setStateTrue = () => {
     setIsTrue(true);
   };
 
-  const setStateFalse = (e) => {
+  const setStateFalse = () => {
     setIsTrue(false);
   };
 
@@ -31,6 +31,8 @@ const Countries = (props) => {
         setFilterValue={props.setFilterValue}
         setStateTrue={setStateTrue}
         setStateFalse={setStateFalse}
+        theme={props.theme}
+        setWebTheme={props.setWebTheme}
       />
       <section>
         {isTrue === false &&
@@ -42,7 +44,7 @@ const Countries = (props) => {
             })
             .map((country, index) => {
               return (
-                <div className="country--card">
+                <div className={props.theme === "light" ? "country--card light" : "country--card  dark"}>
                   <Link key={index} to={`${country.name.common}`}>
                     <img src={country.flags.png} alt="" />
                     <div className="country--info">
@@ -74,21 +76,23 @@ const Countries = (props) => {
             .map((country, index) => {
               return (
                 <div key={index} className="country--card">
-                  <img src={country.flags.png} alt="" />
-                  <div className="country--info">
-                    <p>
-                      <span>Country:</span> {country.name.common}
-                    </p>
-                    <p>
-                      <span>Population:</span> {country.population}
-                    </p>
-                    <p>
-                      <span>Region:</span> {country.region}
-                    </p>
-                    <p>
-                      <span>Capital:</span> {country.capital}
-                    </p>
-                  </div>
+                  <Link key={index} to={`${country.name.common}`}>
+                    <img src={country.flags.png} alt="" />
+                    <div className="country--info">
+                      <p>
+                        <span>Country:</span> {country.name.common}
+                      </p>
+                      <p>
+                        <span>Population:</span> {country.population}
+                      </p>
+                      <p>
+                        <span>Region:</span> {country.region}
+                      </p>
+                      <p>
+                        <span>Capital:</span> {country.capital}
+                      </p>
+                    </div>
+                  </Link>
                 </div>
               );
             })}

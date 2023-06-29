@@ -2,11 +2,16 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { BsMoon } from "react-icons/bs";
+import "../styles/Country.scss";
 
-export const Country = () => {
+export const Country = (props) => {
   const [countryDetails, setCountryDetails] = useState([]);
-  
 
+
+  const clearSearch = () => {
+    props.setSearch("")
+  }
   const { name } = useParams();
 
   useEffect(() => {
@@ -16,43 +21,64 @@ export const Country = () => {
   }, [name]);
 
   return (
-    <div>
-      <button>Back</button>
+    <div className="country--detail--container">
+      <header>
+        <nav className="navbar">
+          <h1>Where in the world?</h1>
+          <input type="search" placeholder="Search Country" name="" id="" />
+          <div className="select--span">
+            <select>
+              <option value="Europe">Europe</option>
+              <option value="Asia">Asia</option>
+              <option value="Americas">Americas</option>
+              <option value="Africa">Africa</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+            <span className="span">
+              <BsMoon />
+              Dark Mode
+            </span>
+          </div>
+        </nav>
+      </header>
       <div className="flag--info">
         {countryDetails.map((country, index) => {
           {
-            
             const lang = Object.keys(country.languages);
-            const currency = Object.keys(country.currencies)
+            const currency = Object.keys(country.currencies);
             return (
               <>
-                <img src={country.flags.png} alt="" />
+                <div className="flag--btn">
+                  <Link onClick={() => clearSearch()} to={"/"}>Back</Link>
+                  <img src={country.flags.png} alt="" />
+                </div>
                 <div className="info">
                   <h3>{country.name.common}</h3>
-                  <h6>Native Name: {country.name.official}</h6>
-                  <h6>Population: {country.population}</h6>
-                  <h6>Region: {country.region}</h6>
-                  <h6>Sub-Region: {country.subregion} </h6>
-                  <h6>Capital: {country.capital}</h6>
-                  <h6>Currency: {currency.map((curr, index) => {
-                    return (
-                      
-                      <span>
-                         {country.currencies[curr].name}
-                      </span>
-                    )
-                  })}</h6>
-                  <h6 key={index}>
-                    Languages:
-                    {lang.map((language, index) => {
-                      return (
-                        <span key={index}> {country.languages[language]}</span>
-                      );
+                  <p>
+                    <span>Native Name:</span> {country.name.official}{" "}
+                  </p>
+                  <p>
+                    <span>Population:</span> {country.population}
+                  </p>
+                  <p>
+                    <span>Region:</span> {country.region}
+                  </p>
+                  <p>
+                    <span>Sub-Region:</span> {country.subregion}{" "}
+                  </p>
+                  <p>
+                    <span>Currency:</span>{" "}
+                    {currency.map((curr, index) => {
+                      return <span>{country.currencies[curr].name}</span>;
                     })}
-                  </h6>
-                  <div className="border">
-                    <p>Borders: {country.borders}</p>
-                  </div>
+                  </p>
+                  <p key={index}>
+                    <span>Language:</span>{" "}
+                    {lang.map((language, index) => {
+                      return <> {country.languages[language]}</>;
+                    })}
+                  </p>
+                  
                 </div>
               </>
             );

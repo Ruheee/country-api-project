@@ -3,6 +3,19 @@
   src: url(https://fonts.google.com/specimen/Nunito+Sans);
 }
 
+.light{
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
+.dark{
+  background-color: hsl(209, 23%, 22%);
+  color: white;
+  text-decoration: none;
+  color: white;
+}
+
 *{
   margin: 0;
   padding: 0;
