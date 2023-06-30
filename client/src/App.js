@@ -41,7 +41,7 @@ function App() {
               />
             }
           />
-          <Route path="/:name" element={<Country search={search} setSearch={setSearch}/>} />
+          <Route path="/:name" element={<Country search={search} setSearch={setSearch} setWebTheme={setWebTheme} />} />
         </Routes>
       </Router>
     </div>

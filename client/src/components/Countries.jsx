@@ -44,8 +44,18 @@ const Countries = (props) => {
             })
             .map((country, index) => {
               return (
-                <div className={props.theme === "light" ? "country--card light" : "country--card  dark"}>
-                  <Link key={index} to={`${country.name.common}`}>
+                <div
+                  className={
+                    props.theme === "light"
+                      ? "country--card light"
+                      : "country--card  dark"
+                  }
+                >
+                  <Link
+                    key={index}
+                    to={`${country.name.common}`}
+                    className={props.theme === "light" ? "light" : "dark"}
+                  >
                     <img src={country.flags.png} alt="" />
                     <div className="country--info">
                       <p>
@@ -75,8 +85,19 @@ const Countries = (props) => {
             })
             .map((country, index) => {
               return (
-                <div key={index} className="country--card">
-                  <Link key={index} to={`${country.name.common}`}>
+                <div
+                  key={index}
+                  className={
+                    props.theme === "light"
+                      ? "country--card light"
+                      : "country--card  dark"
+                  }
+                >
+                  <Link
+                    key={index}
+                    to={`${country.name.common}`}
+                    className={props.theme === "light" ? "light" : "dark"}
+                  >
                     <img src={country.flags.png} alt="" />
                     <div className="country--info">
                       <p>

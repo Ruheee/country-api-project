@@ -8,6 +8,7 @@ function Navbar(props) {
       <nav className="navbar">
         <h1>Where in the world?</h1>
         <input
+          className={props.theme === "light" ? "light" : "dark"}
           type="search"
           placeholder="Search Country"
           name=""
@@ -22,6 +23,7 @@ function Navbar(props) {
             onChange={(e) => {
               return props.setFilterValue(e.target.value), props.setStateTrue();
             }}
+            className={props.theme === "light" ? "light" : "dark"}
           >
             <option value="Europe">Europe</option>
             <option value="Asia">Asia</option>

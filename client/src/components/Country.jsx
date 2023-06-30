@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { BsMoon } from "react-icons/bs";
 import "../styles/Country.scss";
+import { Toggle } from "./Toggle";
 
 export const Country = (props) => {
   const [countryDetails, setCountryDetails] = useState([]);
@@ -21,7 +22,8 @@ export const Country = (props) => {
   }, [name]);
 
   return (
-    <div className="country--detail--container">
+    <div  
+  >
       <header>
         <nav className="navbar">
           <h1>Where in the world?</h1>
@@ -34,14 +36,15 @@ export const Country = (props) => {
               <option value="Africa">Africa</option>
               <option value="Oceania">Oceania</option>
             </select>
-            <span className="span">
-              <BsMoon />
-              Dark Mode
-            </span>
+            <Toggle setWebTheme={props.setWebTheme}/>
           </div>
         </nav>
       </header>
-      <div className="flag--info">
+      <div className={
+      props.theme === "flag--info light"
+        ? "light"
+        : "dark"
+    } className="flag--info">
         {countryDetails.map((country, index) => {
           {
             const lang = Object.keys(country.languages);
